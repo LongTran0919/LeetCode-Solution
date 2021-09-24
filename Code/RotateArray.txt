@@ -1,0 +1,32 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    var tempArray=nums;
+   var nums1=[];
+    var n1=0;
+    var lengthArray=tempArray.length;
+    if(lengthArray<=100){
+        for(var i=0;i<k;i++){
+        var temp=tempArray[tempArray.length-1];
+        for(var j=tempArray.length-1;j>0;j--){
+            tempArray[j]=tempArray[j-1];
+        }
+        tempArray[0]=temp;
+        }
+    }
+    else{
+          for(var i=0;i<k;i++){
+        nums1[n1++]=tempArray[lengthArray-k+i];
+        }
+        for(var j=lengthArray-1;j>k-1;j--){
+            tempArray[j]=tempArray[j-k];
+        }
+        for(var h=0;h<k;h++){
+            tempArray[h]=nums1[h];
+        }
+        }
+    return tempArray;
+};

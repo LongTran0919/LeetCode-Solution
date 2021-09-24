@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function(nums1, nums2) {
+    var mergedArray= nums1.concat(nums2);
+    var leghtOfArray = mergedArray.length;
+    var medianOfArray;
+    var midPosition=leghtOfArray/2;
+    //mergedArray.sort();
+    sortArray(mergedArray);
+    if(leghtOfArray%2==0){
+        medianOfArray= (mergedArray[midPosition]+mergedArray[midPosition-1])/2;
+    }
+    else{
+        medianOfArray=mergedArray[Math.floor(leghtOfArray/2)];
+    }
+    console.log(mergedArray);
+    return medianOfArray;
+};
+function sortArray(arrays){
+    for(var i=0;i<arrays.length-1;i++)
+    {
+        for(var j=i+1;j<arrays.length;j++)
+            {
+                if(arrays[j]<arrays[i])
+                {
+                    var x= arrays[j];
+                    arrays[j]=arrays[i];
+                    arrays[i]=x;
+                }
+            }
+    }
+}
